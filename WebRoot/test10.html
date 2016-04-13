@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>html10.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+	<select class="combox" name="province" ref="combox_city"
+		refUrl="AllAction_oneComboxGet.do?sheng={value}">
+		<option value="all">所有省市</option>
+		<option value="sd">山东</option>
+		<option value="ln">辽宁</option>
+	</select>
+	<select class="combox" name="city" id="combox_city" 
+	refUrl="AllAction_twoComboxGet.do?shi={value}" ref="combox_area">
+		<option value="all">所有城市</option>
+	</select>
+	<select class="combox" name="area" id="combox_area">
+		<option value="all">所有区县</option>
+	</select>
+</body>
+</html>

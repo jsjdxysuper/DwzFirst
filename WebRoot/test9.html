@@ -1,0 +1,44 @@
+<script type="text/javascript">
+function dosomething(e){
+	alert(e.currentTarget.attributes["href"]);
+}
+</script>
+<a class="delete"
+	href="__URL__/foreverdelete/id/{sid_user}/navTabId/__MODULE__"
+	target="ajaxTodo" title="你确定要删除吗？" warn="请选择用户" onclick="dosomething(event)"><span>删除</span>
+</a>
+<a class="edit" href="__URL__/edit/id/{sid_user}" target="dialog"
+	mask="true" warn="请
+选择用户"><span>编辑</span>
+</a>
+<a class="icon" href="__URL__/password/id/{sid_user}" target="dialog"
+	mask="true" warn="请选择用户"><span>修改密码</span>
+</a>
+<table class="list" width="100%" layoutH="116">
+	<thead>
+		<tr>
+			<th width="60">编号</th>
+			<th width="100">用户名</th>
+			<th>昵称</th>
+			<th>Email</th>
+			<th width="100">添加时间</th>
+			<th width="120">上次登录</th>
+			<th width="80">登录次数</th>
+			<th width="80">状态</th>
+		</tr>
+	</thead>
+	<tbody>
+		<volist id="vo" name="list">
+		<tr target="sid_user" rel="{$vo['id']}">
+			<td>{$vo['id']}</td>
+			<td>{$vo['account']}</td>
+			<td>{$vo['nickname']}</td>
+			<td>{$vo['email']}</td>
+			<td>{$vo['create_time']|date="Y-m-d",###}</td>
+			<td>{$vo['last_login_time']|date="Y-m-d H:i:s",###}</td>
+			<td>{$vo['login_count']}</td>
+			<td>{$vo['status']|showStatus=$vo['id']}</td>
+		</tr>
+		</volist>
+	</tbody>
+</table>
